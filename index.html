@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>为为钰是Princess</title>
+	<meta charset="UTF-8">
+	<style>
+	
+		* {
+		margin: 0;
+		padding: 0;
+			}
+		html,body{
+		width: 100%;
+		height: 100%;
+			}
+		canvas{
+		display: block;
+		width: 100%;
+		height: 100%;
+			}
+	
+      #canvasWrapper {
+        position:relative;
+      }
+      #canvasWrapper canvas {
+        position:absolute;
+        left:0;
+        top:0;
+      }
+    </style>
+	<script src="script.js"></script>
+</head>
+<body>
+<body onload="toggleRunning()">
+<div id='canvasWrapper'></div>
+<div id='control' height=20 style="text-align: center;">
+	<button id="toggleRunning" onclick="toggleRunning()">Start</button>
+</div>
+<canvas id="canvas" width="1920px" height="1680px">
+</canvas
+</body>
+</html>
