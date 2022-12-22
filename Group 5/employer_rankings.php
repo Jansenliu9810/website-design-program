@@ -1,0 +1,287 @@
+<?php
+require_once 'database.php';
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employer Rankings</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Company,Reviews,Job experiences,ReviewsDance" name="keywords">
+    <meta content="The most comprehensive information" name="description">
+    <meta content="Group 5" name="author">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="css/SubWebpage.css">
+
+</head>
+<body>
+    <div class="container-fluid py-2 border-bottom d-none d-lg-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-lg-start mb-2 mb-lg-0">
+                    <div class="d-inline-flex align-items-center">
+                        <a class="text-decoration-none text-body pe-3" href=""><i class="bi bi-telephone me-2"></i>+021 208 1828</a>
+                        <span class="text-body">|</span>
+                        <a class="text-decoration-none text-body px-3" href=""><i class="bi bi-envelope me-2"></i>robertaiwanlol@gmail.com</a>
+
+                        <!-- Cookie  Status and Logout -->
+                        <span class="text-body">|</span>
+                        <?php if(isset($_COOKIE['username'])): ?>
+                            <a class = "text-decoration-none text-body px-2"><i class = "bi me-2"></i><?= $_COOKIE['username'] ?></a>
+                            <!--<form action="logout.php" method="post"> -->
+                            <a class = "text-decoration-none text-body px-0" type="submit" href="logout.php"><i class="bi me-0"></i>logout</a>
+                            <!-- </form> -->
+                        <?php else: ?>
+                            <a class = "text-decoration-none text-body px-2"><i class = "bi me-2"></i>Username</a>
+                        <?php endif; ?>
+                        <!-- Cookie Coding end -->
+
+                    </div>
+                </div>
+
+                <div class="col-md-6 text-center text-lg-end">
+                    <div class="d-inline-flex align-items-center">
+                        <a class="text-body px-2" href="">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a class="text-body px-2" href="">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a class="text-body px-2" href="">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a class="text-body px-2" href="">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a class="text-body ps-2" href="">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <div class="container-fluid sticky-top bg-white shadow-sm mb-5">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
+                <a href="index.php" class="navbar-brand">
+                    <!--img class = "position-absolute w-30 h-100 rounded" src="img/ReviewsDance.jpg" style="object-fit:contain;">"-->
+                    <h1 class="m-0 text-uppercase text-primary"><img src="img/ReviewsDance.jpg" style="width: 120px; height: 120px">ReviewsDance</h1>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0">
+                        <a href="index.php" class="nav-item nav-link">Home</a>
+                        <a href="employer_rankings.php" class="nav-item nav-link">Employer Ranking</a>
+                        <a href="price.html" class="nav-item nav-link">Contact</a>
+                        <!-- Check the status of Log in -->
+                        <?php if(!isset($_COOKIE['username'])): ?>
+                            <a href="login.php" class="nav-item nav-link">Log In</a>
+                        <?php else: ?>
+                            <a href="logout.php" class="nav-item nav-link">Log Out</a>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+    <!-- Main Body -->
+    <!--
+    /*
+    *
+    * Name: Zerong Chen
+    * Date: 2022/10/21
+    *
+    */
+    -->
+    <!-- searching the company -->
+    <div class="search-bar">
+        <form name='company_search' method='get' action='employer_rankings.php' class="companySearch">
+            <input type='search' name='company_name' size='18' placeholder="   Enter Company..." id="SearchBox"/>
+            <div class="multi-select">
+                <?php
+                $addrs = getAddroption();   //country address array
+                ?>
+                <select class="country-select info-select" name="country">
+                    <option value="">Please Select</option>
+                    <?php
+                    foreach($addrs["country"] as $country):?>
+                        <option value="<?= $country ?>"><?php echo $country;?></option>
+                    <?php endforeach;?>
+                </select>
+            </div>
+            <input type='submit' name="search" value='Search' class="SearchSubmit"/>
+        </form>
+    </div>
+    <br />
+    <!--
+    IF search field is not empty and dropdown selection is not empty(selected)
+    Outputs the companies from the search field
+    ELSE
+    Default output is 5 random companies
+    -->
+    <?php
+    if (!empty($_GET['company_name']) or !empty($_GET['country'])){
+        $nameSearch = $_GET['company_name'];
+        $addrSearch = $_GET['country'];
+        //show searched company list
+        $company_list = searchCompany($nameSearch, $addrSearch, 5);   //search result array
+    }else{
+        //show random company list
+        $company_list = getRandomCompany(5);
+    }?>
+
+    <!-- width and height setting -->
+    <section class="limitWidth">
+
+    <div class="company-post-list">
+        <?php if (!$company_list):?>
+            <span>Company Not Found<span>
+        <?php else:?>
+            <?php for ($i=0; $i<count($company_list); $i++): ?>
+                <!-- single company block -->
+             <div class="team-item">
+                    <div class="row g-0 bg-light rounded overflow-hidden">
+                        <div class="col-12 col-sm-5 h-100">
+                            <img class="img-fluid h-100" src="img/company-3.jpg" style="...">
+                        </div>
+                        <div class="col-12 col-sm-7 h-100 d-flex flex-column">
+                            <div class="mt-auto p-4">
+                                <h3><?= $company_list[$i]->getName() ?></h3>
+                                <h6 class="m-0 mb-4"><?= $company_list[$i]->getAddr() ?></h6>
+                                <p class="m-0">
+                                    <a href="<?= $company_list[$i]->getUrl() ?>">
+                                        <?= $company_list[$i]->getUrl() ?>
+                                    </a>
+                                </p>
+                            </div>
+                            <div class="review">
+                                <form name='company_review' method='get' action='review_employer.php'>
+                                    <!--transfer 'employer_id' to review_employer.php -->
+                                    <input type="hidden" name="company_id" value="<?= $company_list[$i]->getId() ?> " />
+                                    <input type='submit' name="review" value='Review' class="reviewButton"/>
+                                </form>
+                            </div>
+                            <div class="d-flex mt-auto border-top p-4">
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="#"><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded-circle" href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+             </div>
+            <br>
+            <?php endfor; ?>
+        <?php endif; ?>
+    </div>
+
+        <!-- width and height setting -->
+    </section>
+
+    <!-- Team End -->
+
+    <div class="container-fluid bg-dark text-light mt-5 py-5">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">Get In Touch</h4>
+                    <p class="mb-4">We will satisfy you with the best service.</p>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt text-primary me-3"></i>123 Street, University of Canterbury, NZ</p>
+                    <p class="mb-2"><i class="fa fa-envelope text-primary me-3"></i>robertaiwanlol@gmail.com</p>
+                    <p class="mb-0"><i class="fa fa-phone-alt text-primary me-3"></i>+021 208 1828</p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">Quick Links</h4>
+                    <div class="d-flex flex-column justify-content-start">
+                        <a class="text-light mb-2" href="#"><i class="fa fa-angle-right me-2"></i>Home</a>
+                        <a class="text-light mb-2" href="#"><i class="fa fa-angle-right me-2"></i>Our Services</a>
+                        <a class="text-light" href="#"><i class="fa fa-angle-right me-2"></i>Contact Us</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">Popular Links</h4>
+                    <div class="d-flex flex-column justify-content-start">
+                        <a class="text-light mb-2" href="#"><i class="fa fa-angle-right me-2"></i>Home</a>
+                        <a class="text-light mb-2" href="#"><i class="fa fa-angle-right me-2"></i>Our Services</a>
+                        <a class="text-light" href="#"><i class="fa fa-angle-right me-2"></i>Contact Us</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">Newsletter</h4>
+                    <form action="">
+                        <div class="input-group">
+                            <input type="text" class="form-control p-3 border-0" placeholder="Your Email Address">
+                            <button class="btn btn-primary">Sign Up</button>
+                        </div>
+                    </form>
+                    <h6 class="text-primary text-uppercase mt-4 mb-3">Follow Us</h6>
+                    <div class="d-flex">
+                        <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-lg btn-primary btn-lg-square rounded-circle" href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-dark text-light border-top border-secondary py-4">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-md-0">&copy; <a class="text-primary" href="#">ReviewsDance</a>. Help users collect and view information</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">Designed by Group 5</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
+
+

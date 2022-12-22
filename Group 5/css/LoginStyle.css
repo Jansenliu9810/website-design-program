@@ -1,0 +1,164 @@
+/*
+*
+* Develop By
+* Name: Jansen Liu
+* Date: 2022/10/21
+* Email: Jansenliu9810@gmail.com
+*
+*/
+
+/* Initialize the global style */
+ 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ 
+/* Using flex layout, center the content vertically and horizontally */
+
+body{
+    background-image: url("https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic.cifnews.com%2Fupload%2F201909%2F11%2F201909111823475296.jpg&refer=http%3A%2F%2Fpic.cifnews.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1666249010&t=0776e7ce908996a7c8a3441de26b1f9a");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* Home Logo style */
+.home{
+    position: absolute;
+    left: 35px;
+    top: 50px;
+}
+
+
+section {
+    /* relative position */
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+ 
+/* background color */
+.box {
+    position: relative;
+	border-radius: 10px;
+}
+
+ 
+/* Login Container style */
+ 
+.container {
+    position: relative;
+    width: 400px;
+    min-height: 400px;
+    background: rgba(255, 255, 255, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+ 
+.form {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+}
+ 
+/* Login header style */
+ 
+.form h2 {
+    position: relative;
+    color: #009dff;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+ 
+/* Login header underline style */
+ 
+.form h2::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 0px;
+    height: 3px;
+    background: #fff;
+    transition: 0.5s;
+}
+ 
+.form h2:hover:before {
+    width: 100%;
+}
+ 
+.form .inputBox {
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Input Container style */
+ 
+.form .inputBox input {
+    width: 100%;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.2);
+    outline: none;
+    border: none;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #666;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+ 
+.form .inputBox input::placeholder {
+    color: #666;
+}
+ 
+/* Login button style */
+ 
+.form .inputBox input[type="submit"] {
+    background: #fff;
+    color: #666;
+    max-width: 150px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
+ 
+ /*
+.form .inputBox button[type="button"] {
+    background: #fff;
+    color: #666;
+    max-width: 300px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    cursor: pointer;
+} */
+ 
+.forget {
+    margin-top: 6px;
+    color: #236;
+    letter-spacing: 1px;
+}
+ 
+.forget a {
+    color: #236;
+    font-weight: 600;
+    text-decoration: none;
+}
+

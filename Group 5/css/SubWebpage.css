@@ -1,0 +1,203 @@
+/*
+*
+* Develop By
+* Name: Jansen Liu
+* Date: 2022/10/21
+* Email: Jansenliu9810@gmail.com
+*
+*/
+
+/* Interface (Index page) review button */
+.reviewButtonIndex{
+    background: #ffffff;
+    color: #262626;
+    border: 0px;
+    height: 26px;
+    width: 190px;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    left: 6.5%;
+}
+
+/* Employer Rankings Page CSS Style */
+
+.limitWidth{
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.reviewButton{
+    background: #ffffff;
+    color: #262626;
+    border: 0px;
+    width: 190px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    left: 4%;
+}
+
+
+#SearchBox{
+    width: 475px;
+    height: 50px;
+    border: 0;
+    font-size: 18px;
+    outline: none;
+    background-color: rgba(32, 74, 102, 0);
+    color: #000000;
+    font-size: 18px;
+    margin: 0 8.5px;
+}
+
+#SearchBox{
+    width: 500px;
+    height: 50px;
+    border: 2px solid #00fff7;
+    border-radius: 30px;
+    display:flex;
+    margin-top:30px;
+}
+
+#SearchBox a{
+    margin-top:5px;
+    margin-right:20px;
+}
+
+.country-select {
+    position: relative;
+    top: 8px;
+    margin-left: 8px;
+
+    display: block;
+    width: 100%;
+    height: 35px;
+    padding: 6px 12px;
+    font-size: 15px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 2px solid #00fff7;
+    border-radius: 30px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.info-select{
+    width: 250px;
+    outline:none;
+    appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    -ms-appearance:none;
+    background: url(../img/selectButton-c.png) no-repeat scroll right center transparent;
+    background-size: 30.1px;
+    text-indent: 8px;
+}
+
+.companySearch{
+    height: 150px;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.SearchSubmit{
+    background: #00fff7;
+    color: #525252;
+    border: 2px solid #00fff7;
+    border-radius: 30px;
+    width: 180px;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    top: 17px;
+    left: 8px;
+}
+
+
+/* Review Employer Page CSS Style */
+.company-detail{
+    position: relative;
+    left: 25%;
+
+    width: 750px;
+}
+
+#AddReviewButton{
+    background: #00fff7;
+    color: #525252;
+    border: 2px solid #00fff7;
+    border-radius: 30px;
+    width: 200px;
+    font-weight: 600;
+
+}
+
+.company-name{
+    margin: 0 auto;
+    text-align: center;
+    width: 420px;
+}
+
+#ReviewTitle{
+    text-align: center;
+    left: 43%;
+}
+
+.CompanyInfo{
+    border: 3px solid #00fff7;
+    border-radius: 5px;
+}
+
+#subRating{
+    position: relative;
+    top: 6px;
+}
+
+
+/* Add Review Page CSS Style */
+.AddReview{
+    margin: 0 auto;
+    width: 650px;
+}
+
+.RateCompany{
+    text-align: center;
+}
+
+#Description{
+    font-size: 17px;
+}
+
+.SpanTab{
+    font-size: 20px;
+}
+
+#SubmitReview{
+    background: #00fff7;
+    color: #525252;
+    border: 2px solid #00fff7;
+    border-radius: 30px;
+    width: 300px;
+    font-weight: 600;
+    position: relative;
+    left: 25%;
+}
+
+.employment-status-select{
+    width: 215px;
+    height: 30px;
+    border-radius: 2px;
+    outline:none;
+    appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    -ms-appearance:none;
+    text-indent: 5px;
+}
