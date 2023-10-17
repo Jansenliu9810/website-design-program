@@ -1,4 +1,5 @@
 # website-design-program
+## University of Canterbury
 ## Course Name: INFO263
 ## Project Name: Review Dance
 ## Group Name: Group5
